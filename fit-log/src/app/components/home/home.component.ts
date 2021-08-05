@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   
 
   public getData() {
-    this.data.push(this.sheetService.getStats());
+    this.data= this.sheetService.getStats();
   }
 
 }

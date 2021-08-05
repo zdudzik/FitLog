@@ -14,28 +14,80 @@ export class SheetService {
     const sheetno="oi09udo"
     const sheetid = "194s-nX40PFQSNT9yrLd6frHD5HRoWXW0A_1S9hT5Rbc"
     const url = `https://spreadsheets.google.com/feeds/list/${sheetid}/${sheetno}/public/values?alt=json`;
-  
-      return this.http.get(url)
-        .pipe(
-          map((res: any) => {
-            const data = res.feed.entry;
-  
-            const returnArray: Array<any> = [];
-            if (data && data.length > 0) {
-              data.forEach((entry: any) => {
-                let obj = {};
-                for (const x in entry) {
-                  //if (x.includes('gsx$') && entry[x].$t) {
-                    //obj[x.split('$')[1]] = entry[x]['$t'];
-                  //}
-                  obj = entry[x];
-                }
-                returnArray.push(entry);
-                //returnArray.push(entry);
-              });
-            }
-            return returnArray;
-          })
-        );
+
+    let statsObj = {
+      runningStats: {
+        milesRun: [],
+        avgDist: [],
+        avgPace: [],
+        longestRun: [],
+      },
+      gymStats: {
+        numVisits: [],
+        totalTime: [],
+        avgTime: [],
+      }
     }
+
+    return this.http.get(url)
+      .pipe(
+        map((res: any) => {
+          const data = res.feed.entry;
+          const returnArray: Array<any> = [];
+          if (data && data.length > 0) {
+            let i = 0;
+            data.forEach((entry: any) => {
+              let obj = {};
+              switch (i) {
+                case 0: // miles run & num visits
+                  // running
+                  statsObj.runningStats.milesRun.push(entry.gsx$pastweek.$t);
+                  statsObj.runningStats.milesRun.push(entry.gsx$thismonth.$t);
+                  statsObj.runningStats.milesRun.push(entry.gsx$thisyear.$t);
+                  statsObj.runningStats.milesRun.push(entry.gsx$alltime.$t);
+                  // gym
+                  statsObj.gymStats.numVisits.push(entry.gsx$pastweek_2.$t);
+                  statsObj.gymStats.numVisits.push(entry.gsx$thismonth_2.$t);
+                  statsObj.gymStats.numVisits.push(entry.gsx$thisyear_2.$t);
+                  statsObj.gymStats.numVisits.push(entry.gsx$alltime_2.$t);
+                  break;
+                case 1: // avg dist and total time
+                  // running
+                  statsObj.runningStats.avgDist.push(entry.gsx$pastweek.$t);
+                  statsObj.runningStats.avgDist.push(entry.gsx$thismonth.$t);
+                  statsObj.runningStats.avgDist.push(entry.gsx$thisyear.$t);
+                  statsObj.runningStats.avgDist.push(entry.gsx$alltime.$t);
+                  // gym
+                  statsObj.gymStats.totalTime.push(entry.gsx$pastweek_2.$t);
+                  statsObj.gymStats.totalTime.push(entry.gsx$thismonth_2.$t);
+                  statsObj.gymStats.totalTime.push(entry.gsx$thisyear_2.$t);
+                  statsObj.gymStats.totalTime.push(entry.gsx$alltime_2.$t);
+                  break;
+                case 2: // avg pace and avg time
+                  // running
+                  statsObj.runningStats.avgPace.push(entry.gsx$pastweek.$t);
+                  statsObj.runningStats.avgPace.push(entry.gsx$thismonth.$t);
+                  statsObj.runningStats.avgPace.push(entry.gsx$thisyear.$t);
+                  statsObj.runningStats.avgPace.push(entry.gsx$alltime.$t);
+                  // gym
+                  statsObj.gymStats.avgTime.push(entry.gsx$pastweek_2.$t);
+                  statsObj.gymStats.avgTime.push(entry.gsx$thismonth_2.$t);
+                  statsObj.gymStats.avgTime.push(entry.gsx$thisyear_2.$t);
+                  statsObj.gymStats.avgTime.push(entry.gsx$alltime_2.$t);
+                  break;
+                case 3: // longest run
+                  // running
+                  statsObj.runningStats.longestRun.push(entry.gsx$pastweek.$t);
+                  statsObj.runningStats.longestRun.push(entry.gsx$thismonth.$t);
+                  statsObj.runningStats.longestRun.push(entry.gsx$thisyear.$t);
+                  statsObj.runningStats.longestRun.push(entry.gsx$alltime.$t);
+                  break;
+              }
+              i++
+            });
+          }
+          return statsObj;
+        })
+      );
+  }
 }
