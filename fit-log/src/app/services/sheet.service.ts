@@ -26,6 +26,13 @@ export class SheetService {
         numVisits: [],
         totalTime: [],
         avgTime: [],
+      },
+      mostRecent: {
+        runDate: -1,
+        runTime: -1,
+        runDist: -1,
+        gymDate: -1,
+        gymTime: -1,
       }
     }
 
@@ -81,6 +88,12 @@ export class SheetService {
                   statsObj.runningStats.longestRun.push(entry.gsx$thismonth.$t);
                   statsObj.runningStats.longestRun.push(entry.gsx$thisyear.$t);
                   statsObj.runningStats.longestRun.push(entry.gsx$alltime.$t);
+                  // recents (these are labelled incorrectly and a little janky, but data is correct)
+                  statsObj.mostRecent.runDate = entry.gsx$gym.$t;
+                  statsObj.mostRecent.runTime = entry.gsx$thismonth_2.$t;
+                  statsObj.mostRecent.runDist = entry.gsx$pastweek_2.$t;
+                  statsObj.mostRecent.gymDate = entry.gsx$thisyear_2.$t;
+                  statsObj.mostRecent.gymTime = entry.gsx$alltime_2.$t;
                   break;
               }
               i++

@@ -1,4 +1,15 @@
 <ng-container>
+    <h1>Recent Activities</h1>
+
+    <h2>Run</h2>
+    <p>Date: {{ data.mostRecent.runDate}}</p>
+    <p>Time: {{ data.mostRecent.runTime}}</p>
+    <p>Distance: {{ data.mostRecent.runDist}} miles</p>
+    <h2>Gym</h2>
+    <p>Date: {{ data.mostRecent.gymDate}}</p>
+    <p>Duration: {{ data.mostRecent.gymTime}} minutes</p>
+    <hr>
+
     <h1>Running Stats</h1>
 
     <h2>Miles Run</h2>
@@ -10,6 +21,7 @@
     <p>{{ data.runningStats.milesRun[1]}} miles</p>
     <h3>Past Week:</h3>
     <p>{{ data.runningStats.milesRun[0]}} miles</p>
+    <hr>
 
     <h2>Average Distance</h2>
     <h3>All Time:</h3>
@@ -20,6 +32,7 @@
     <p>{{ data.runningStats.avgDist[1]}} miles</p>
     <h3>Past Week:</h3>
     <p>{{ data.runningStats.avgDist[0]}} miles</p>
+    <hr>
 
     <h2>Average Pace</h2>
     <h3>All Time:</h3>
@@ -30,6 +43,7 @@
     <p>{{ data.runningStats.avgPace[1]}} min/mile</p>
     <h3>Past Week:</h3>
     <p>{{ data.runningStats.avgPace[0]}} min/mile</p>
+    <hr>
 
     <h2>Longest Run</h2>
     <h3>All Time:</h3>
@@ -40,6 +54,7 @@
     <p>{{ data.runningStats.longestRun[1]}} miles</p>
     <h3>Past Week:</h3>
     <p>{{ data.runningStats.longestRun[0]}} miles</p>
+    <hr>
     
     <h1>Gym Stats</h1>
     <h2>Number of Visits</h2>
@@ -51,6 +66,7 @@
     <p>{{ data.gymStats.numVisits[1]}}</p>
     <h3>Past Week:</h3>
     <p>{{ data.gymStats.numVisits[0]}}</p>
+    <hr>
 
     <h2>Total Time</h2>
     <h3>All Time:</h3>
@@ -61,6 +77,7 @@
     <p>{{ data.gymStats.totalTime[1]}}</p>
     <h3>Past Week:</h3>
     <p>{{ data.gymStats.totalTime[0]}}</p>
+    <hr>
 
     <h2>Average Time</h2>
     <h3>All Time:</h3>
@@ -71,4 +88,5 @@
     <p>{{ data.gymStats.avgTime[1]}}</p>
     <h3>Past Week:</h3>
     <p>{{ data.gymStats.avgTime[0]}}</p>
+    <hr>
 </ng-container>
