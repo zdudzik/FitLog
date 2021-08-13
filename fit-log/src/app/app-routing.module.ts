@@ -7,7 +7,7 @@ import { SheetComponent } from './components/sheet/sheet.component';
 const routes : Routes =[
   {
     path: '',
-    component: HomeComponent,
+    component: SheetComponent,
   },
 ]
 
