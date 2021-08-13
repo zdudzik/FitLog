@@ -1,21 +1,43 @@
 <div class="home">
     <div class="home__header">
-
+        
     </div>
     <div class ="centered">
         <div class="cards">
             <div class="card">
-                <div class="card__content">a</div>
+
+                <div class="card__content">
+                    <div class="card__content__header">
+                        <h1>Recent Activities</h1>
+                    </div>
+                    <div class="card__content__left">
+                        <mat-icon>directions_run</mat-icon>
+                        <h2>Run</h2>
+                        <p>Date: {{ data.mostRecent.runDate}}</p>
+                        <p>Time: {{ data.mostRecent.runTime}}</p>
+                        <p>Distance: {{ data.mostRecent.runDist}} miles</p>
+                    </div>
+                    <div class="card__content__right">
+                        <mat-icon>fitness_center</mat-icon>
+                        <h2>Gym</h2>
+                        <p>Date: {{ data.mostRecent.gymDate}}</p>
+                        <p>Duration: {{ data.mostRecent.gymTime}} minutes</p>
+                    </div>
+                </div>
             </div>
+
             <div class="card">
                 <div class="card__content">b</div>
             </div>
+
             <div class="card">
                 <div class="card__content">c</div>
             </div>
+
             <div class="card">
                 <div class="card__content">d</div>
             </div>
+
         </div>
     </div>
 </div>
