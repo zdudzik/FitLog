@@ -98,6 +98,7 @@ h1, h2, p {
         &__left {
             flex: 1 0 800px;
             box-sizing: border-box;
+            padding: 10px 15px;
             margin: 1rem .25em;
             border-radius: 5px;
             background: #2E2E2E;
@@ -109,13 +110,12 @@ h1, h2, p {
 
                 /* Style the search box inside the navigation bar */
                 &__search[type=text] {
-                    flex: 1 0 500px;
                     padding: 6px;
                     border: none;
                     margin: 10px 15px 10px 15px;
                     border-radius: 5px;
 
-                    //width: 60%;
+                    width: 70%;
                     
                     font-size: 17px;
                     font-family: 'Work Sans', sans-serif;
@@ -123,11 +123,10 @@ h1, h2, p {
                 }
 
                 &__search-button {
-                    flex: 1 0 100px;
                     padding: 6px;
                     margin: 10px 15px 10px 15px;
                     border-radius: 5px;
-                    //width: 10%;
+                    width: 24px;
                     
                     background: #BA4B34;
                     &__text {
@@ -135,14 +134,18 @@ h1, h2, p {
                         font-size: 12px;
                     }
                 }
-            }
 
-            &__middle{
-
+                &__search-filters {
+                    flex: 1 0 100px;
+                    padding: 6px;
+                    border-radius: 5px;
+                }
             }
 
             &__bottom{
-
+                margin: 15px 10px 15px 10px;
+                text-decoration: underline;
+                color: #ADD8E6;
             }
 
 
@@ -163,8 +166,14 @@ h1, h2, p {
     }
 }
 
-.filter-bar {
-
+.search-checkbox {
+    margin-right: 0;
+    &__label {
+        font-family: 'Work Sans';
+        font-weight: bold;
+        margin-right: 10px;
+        color: white;
+    }
 }
 
 .cards {
