@@ -1,10 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap');
+
 h1, h2, p {
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    //font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
 }
 
-mat-icon {
-    color: white;
+.home {
+    &__header {
+        display: flex;
+        flex-direction: row;
+        padding: 10px 0 10px 0;
+        width: 100%;
+        background-color: #2E2E2E;
+
+        &__left {
+            justify-content: flex-start;
+
+            font-family: 'Work Sans';
+            font-size: 34px;
+            font-weight: 700;
+            line-height: 39.88px;
+            color: #C95C54;
+        }
+
+        &__center {
+            width: 100%;
+            font-family: 'Work Sans';
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 28.15px;
+            text-align: center;
+            color: white;
+
+        }
+
+        &__right {
+            justify-content: flex-end;
+        }
+    }
+
+    &__content {
+        display: flex;
+
+        &__left {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            text-align: right;
+            justify-content: flex-end;
+            margin: 20px;
+            
+            width: 100%;
+            //height: 500px;
+
+            &__big-text {
+                width: 100%;
+                font-family: Roboto;
+                line-height: 112.61px;
+                font-weight: 700;
+                font-size: 96px;
+                color: #C95C54;
+            }
+
+        }
+
+        &__right {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            text-align: left;
+            justify-content: center;
+            margin: 20px;
+            
+            width: 100%;
+            //height: 500px;
+
+            &__text {
+                font-family: Roboto;
+                line-height: 42.24px;
+                font-weight: 500;
+                font-size: 36px;
+                color: #2E2E2E;
+            }
+
+        }
+
+       
+    }
+
+    &__middle {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        &__left {
+            flex: 1 0 800px;
+            box-sizing: border-box;
+            margin: 1rem .25em;
+            border-radius: 5px;
+            background: #2E2E2E;
+
+            &__top {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                /* Style the search box inside the navigation bar */
+                &__search[type=text] {
+                    flex: 1 0 500px;
+                    padding: 6px;
+                    border: none;
+                    margin: 10px 15px 10px 15px;
+                    border-radius: 5px;
+
+                    //width: 60%;
+                    
+                    font-size: 17px;
+                    font-family: 'Work Sans', sans-serif;
+                    font-weight: bold;
+                }
+
+                &__search-button {
+                    flex: 1 0 100px;
+                    padding: 6px;
+                    margin: 10px 15px 10px 15px;
+                    border-radius: 5px;
+                    //width: 10%;
+                    
+                    background: #BA4B34;
+                    &__text {
+                        color: white;
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            &__middle{
+
+            }
+
+            &__bottom{
+
+            }
+
+
+            
+        }
+
+        &__right {
+            flex: 1 0 100px;
+            box-sizing: border-box;
+            margin: 1rem .25em;
+            border-radius: 5px;
+            background: #BA4B34;
+            color: white;
+            font-size: 18px;
+            padding: 15px;
+            
+        }
+    }
+}
+
+.filter-bar {
+
 }
 
 .cards {
@@ -17,29 +177,66 @@ mat-icon {
     flex: 1 0 500px;
     box-sizing: border-box;
     margin: 1rem .25em;
-    padding: 1.5em;
+    border-radius: 5px;
 
-    background: #474444;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
+    background: white;
+    //box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     &__content {
         display: flex;
         flex-wrap: wrap;
-        height: 243px;
         left: 15px;
         top: 26px;
 
-        &__header {
+        &__button {
+            display: flex;
+            justify-content: center;
+            background: #BA4B34;
+            
+            border-radius: 5px;
+            width: 90px;
+            height: 30px;
+
+            &__text {
+                color: white;
+                font-size: 12px;
+            }
+        }
+
+        &__top {
+            border-radius: 5px 5px 0 0;
             width: 100%;
+            height: 20%;
+            padding-left: 10px;
+            background-color: #F7F7F7;
+            border-top: 1px solid #D8D8D8;
+            border-left: 1px solid #D8D8D8;
+            border-right: 1px solid #D8D8D8;
         }
 
-        &__left {
-            width: 50%;
+        &__middle {
+            padding: 0 10px 0 10px;
+            width: 100%;
+            height: 70%;
+            border: 1px solid #D8D8D8;
         }
 
-        &__right {
-            width: 50%;
+        &__bottom {
+            display: flex;
+            flex-direction: row;
+            border-radius: 0 0 5px 5px;
+            width: 100%;
+            height: 10%;
+            padding: 5px 5px 5px 10px;
+            border-bottom: 1px solid #D8D8D8;
+            border-left: 1px solid #D8D8D8;
+            border-right: 1px solid #D8D8D8;
+
+            &__right {
+                width: 100%;
+                background-color: red;
+                justify-content: center;
+            }
         }
     }
 }
@@ -53,7 +250,7 @@ mat-icon {
 
 @media screen and (min-width: 80em) {
     .card {
-        max-width: calc(25% - 1em);
+        max-width: calc(33% - 1em);
     }
 }
 
